@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <app-sidebar></app-sidebar>
+  <main class="container">
+    <header class="header">
+      <h1>Listado de tickets</h1>
+      <p>Aquí puedes visualizar todos los datos de tus tickets</p>
+    </header>
+
+    <div class="container-cards">
+      <!-- Total de tickets -->
+      <section id="Total" class="card">
+        <img src="/assets/Totales.png" alt="">
+        <h3>Tickets totales</h3>
+        <p>{{TicketsTotales}}</p>
+      </section>
+
+      <!-- Tickets abiertos -->
+      <section id="Abiertos" class="card">
+        <img src="/assets/Abiertos.png" alt="">
+        <h3>Tickets abiertos</h3>
+        <p>{{TicketsAbiertos}}</p>
+      </section>
+
+      <!-- Tickets en proceso -->
+      <section id="Proceso" class="card">
+        <img src="/assets/EnProceso.png" alt="">
+        <h3>Tickets en proceso</h3>
+        <p>{{TicketsEnProceso}}</p>
+      </section>
+
+    <!-- Tickets cerrados -->
+      <section id="Cerrados" class="card">
+        <img src="/assets/Cerrados.png" alt="">
+        <h3>Tickets cerrados</h3>
+        <p>{{TicketsCerrados}}</p>
+      </section>
+    </div>
+
+    <!-- Botones para filtros -->
+
+    <!-- <button (click)="FilterByStatus()">Filtrar por estado</button>
+    <button (click)="FilterByPriority()">Filtrar por prioridad</button>
+
+    <button>Quitar filtros</button> -->
+    <!-- Botones para filtros -->
+
+
+
+    <!-- Lista de tickets -->
+     <section class="ListaTickets">
+      <table>
+        <thead>
+          <tr>
+            <td>Titulo</td>
+            <td>Descripción</td>
+            <td>Fecha de creación</td>
+            <td>Última actualización</td>
+            <td>Estado</td>
+            <td>Prioridad</td>
+            <td>Descripción del cambio</td>
+            <td>Nombre del cliente</td>
+            <td>Correo del cliente</td>
+            <td>Nombre del representante</td>
+            <td>Correo del representante</td>
+            <td>Actualizar</td>
+            <td>Historial</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of TicketsList">
+            <td>{{ticket.title}}</td>
+            <td>{{ticket.description}}</td>
+            <td>{{ticket.creationDate | date : 'short' }}</td>
+            <td>{{ticket.updateDate   | date : 'short' }}</td>
+            <td>{{ticket.statusName}}</td>
+            <td>{{ticket.priorityName}}</td>
+            <td>{{ticket.changeDescription}}</td>
+            <td>{{ticket.client.name}}</td>
+            <td>{{ticket.client.email}}</td>
+            <td>{{ticket.representative.name}}</td>
+            <td>{{ticket.representative.email}}</td>
+            <td>
+              <button title="Actualizar" (click)="RedirectToUpdateTicket(ticket.ticketID)" >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                  <path d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"></path>
+                  <path d="M16 5l3 3"></path>
+                  <path d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"></path>
+                </svg>
+              </button>
+            </td>
+            <td>
+              <button title="Historial"(click)="RedirectToTicketHistory(ticket.ticketID)" >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                  <path d="M12 8l0 4l2 2"></path>
+                  <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5"></path>
+                </svg>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+     </section>
+
+  </main>
+</body>
+
+</html>

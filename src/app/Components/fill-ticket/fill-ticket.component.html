@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <app-sidebar></app-sidebar>
+  <main class="container">
+    <header class="header">
+      <h1>Completar Tickets</h1>
+      <p>Por favor, rellena los detalles faltantes del ticket preliminar.</p>
+    </header>
+
+    <section class="form-section">
+      <h2>Completa los datos faltantes de este ticket preliminar</h2>
+      <p>Selecciona el estado 'Abierto', asigna una prioridad en base al problema y asigna un representante.</p>
+
+
+      <div class="ticket-details" *ngIf="PreliminaryTicket.length > 0">
+        <div *ngFor="let ticket of PreliminaryTicket">
+          <h4>Título del problema</h4>
+          <p>{{ ticket.title }}</p>
+          <h4>Descripción del problema</h4>
+          <p>{{ ticket.description }}</p>
+          <h4>Creación del ticket</h4>
+          <p>{{ ticket.creationDate | date: 'short' }}</p>
+        </div>
+      </div>
+
+      <form class="ticket-form">
+        <label for="status">Selecciona el estatus del ticket</label>
+        <select id="status" [(ngModel)]="data.StatusID" name="status">
+          <option value="1">Abierto</option>
+          <option value="2">En proceso</option>
+          <option value="3">Cerrado</option>
+        </select>
+
+        <label for="priority">Selecciona la prioridad del ticket</label>
+        <select id="priority" [(ngModel)]="data.PriorityID" name="priority">
+          <option value="1">Baja</option>
+          <option value="2">Media</option>
+          <option value="3">Alta</option>
+          <option value="4">Crítica</option>
+        </select>
+
+        <label for="representative">Asigna un representante al ticket</label>
+        <select id="representative" [(ngModel)]="data.RepID" name="representative">
+          <option *ngFor="let rep of ListaRep" [value]="rep.userID">{{ rep.name }}</option>
+        </select>
+
+        <button
+          type="button"
+          (click)="onSubmit()"
+          [disabled]="!data.StatusID || !data.PriorityID || !data.RepID"
+          class="btn-submit">
+          Completar Ticket
+        </button>
+      </form>
+    </section>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <app-sidebar></app-sidebar>
+  <main class="container">
+    <header>
+      <h1 class="Titulo">Actualización de tickets</h1>
+      <p class="Subtitulo">Actualiza alguno de los siguientes datos del ticket.</p>
+    </header>
+
+    <section class="Formulario">
+
+      <h2 class="Formulario__Titulo">Enviar una solicitud</h2>
+      <p class="Formulario__Descripcion">
+        Llena el formulario con los detalles de tu problema. Nuestro equipo revisará tu solicitud lo antes posible.
+      </p>
+
+      <div class="ticket-details" *ngIf="TicketsList.length > 0">
+      <div *ngFor="let ticket of TicketsList">
+        <h4>Título del problema</h4>
+        <p>{{ ticket.title }}</p>
+        <h4>Descripción del problema</h4>
+        <p>{{ ticket.description }}</p>
+        <h4>Creación del ticket</h4>
+        <p>{{ ticket.creationDate | date: 'short' }}</p>
+        <h4>Última actualización</h4>
+        <p>{{ticket.updateDate}}</p>
+        <h4>Estado</h4>
+        <p>{{ticket.statusName}}</p>
+        <h4>Prioridad</h4>
+        <p>{{ticket.priorityName}}</p>
+      </div>
+    </div>
+
+
+      <form class="ticket-form">
+        <label for="status">Selecciona el estatus del ticket</label>
+        <select id="status" [(ngModel)]="data.statusID" name="status">
+          <option value="1">Abierto</option>
+          <option value="2">En proceso</option>
+          <option value="3">Cerrado</option>
+          <option value="4">Reabierto</option>
+        </select>
+
+        <label for="priority">Selecciona la prioridad del ticket</label>
+        <select id="priority" [(ngModel)]="data.priorityID" name="priority">
+          <option value="1">Baja</option>
+          <option value="2">Media</option>
+          <option value="3">Alta</option>
+          <option value="4">Crítica</option>
+        </select>
+
+        <label for="description">Descripción del cambio</label>
+        <textarea id="description" [(ngModel)]="data.changeDescription" name="description"></textarea>
+
+        <button
+          type="button"
+          (click)="onSubmit()"
+          [disabled]="!data.statusID || !data.priorityID || !data.changeDescription"
+          class="btn-submit">
+          Actualizar datos del ticket
+        </button>
+      </form>
+
+    </section>
+  </main>
+
+</body>
+</html>

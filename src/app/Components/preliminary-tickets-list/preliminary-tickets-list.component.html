@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <app-sidebar></app-sidebar>
+  <main class="container">
+    <header>
+      <h1 class="Titulo">Tickets pendientes</h1>
+      <p class="Subtitulo">Aqui puedes ver los tickets preliminares que necesitan ser completados</p>
+    </header>
+
+    <section class="Lista">
+      <h2 class="Lista__Titulo">Tickets preliminares</h2>
+        <p class="Lista__Descripcion1">
+          Asigna los datos faltantes a los tickets preliminares
+        </p>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Titulo      </th>
+            <th>Descripcion </th>
+            <th>ClientID    </th>
+            <th>CreationDate</th>
+            <th>Completar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of Lista">
+            <td>{{ticket.title}}</td>
+            <td>{{ticket.description}}</td>
+            <td>{{ticket.clientID}}</td>
+            <td>{{ticket.creationDate | date:'short'}}</td>
+            <td class="actions">
+              <button (click)="onSubmit(ticket.preliminaryID)" title="Editar">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil-cog" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+                  <path d="M13.5 6.5l4 4" />
+                  <path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                  <path d="M19.001 15.5v1.5" />
+                  <path d="M19.001 21v1.5" />
+                  <path d="M22.032 17.25l-1.299 .75" />
+                  <path d="M17.27 20l-1.3 .75" />
+                  <path d="M15.97 17.25l1.3 .75" />
+                  <path d="M20.733 20l1.3 .75" />
+                </svg>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </section>
+  </main>
+
+</body>
+</html>

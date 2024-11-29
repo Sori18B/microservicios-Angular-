@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fuente -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <!-- HTML-->
+  <link rel="icon" href="/src/assets/TicketsLogo.png"> <!-- no funcionaaaa -->
+  <title>Inicio de sesión</title>
+</head>
+<body>
+  <div class="bg"></div> <!-- Divs para los fondos xD -->
+  <div class="bg bg2"></div> <!-- Divs para los fondos xD -->
+  <div class="bg bg3"></div> <!-- Divs para los fondos xD -->
+  <div class="content"> <!-- Div para el form del login -->
+
+    <h1>Bienvenido de nuevo</h1>
+    <h2>Inicia sesión con tu cuenta</h2>
+
+    <form (ngSubmit)="Login()" class="formulario">
+      <!-- Correo -->
+      <h4>Ingresa tu correo</h4>
+      <input
+        type="email" name="email" id="email" placeholder="Ingresa tu correo"
+        [(ngModel)]="email"
+        required
+        aria-label="Ingresa tu correo"
+        #emailInput="ngModel"
+        [ngClass]="{'invalid': emailInput.invalid && emailInput.touched}"
+      >
+      <div *ngIf="emailInput.invalid && emailInput.touched" class="error">
+        El correo es obligatorio y debe tener un formato válido.
+      </div>
+
+      <!-- Contraseña -->
+      <h4>Ingresa tu contraseña</h4>
+      <input
+        type="password" name="password" id="password"  placeholder="Ingresa tu contraseña"
+        [(ngModel)]="password"
+        required
+        minlength="6"
+        aria-label="Ingresa tu contraseña"
+        #passwordInput="ngModel"
+        [ngClass]="{'invalid': passwordInput.invalid && passwordInput.touched}"
+      >
+      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error">
+        La contraseña es obligatoria y debe tener al menos 6 caracteres.
+      </div>
+
+      <!-- Botones -->
+      <div class="button-container">
+        <button type="submit" [disabled]="emailInput.invalid || passwordInput.invalid">
+          Iniciar sesión
+        </button>
+        <button type="button" (click)="SignUp()">
+          Crear una nueva cuenta
+        </button>
+      </div>
+    </form>
+
+  </div>
+</body>
+</html>

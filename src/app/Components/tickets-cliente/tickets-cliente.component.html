@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <app-sidebar></app-sidebar>
+<main class="container">
+  <header>
+    <h1 class="Titulo">Mis tickets</h1>
+    <p class="Subtitulo">
+      El estado de los tickets refleja el avance en la resolución del problema.
+    </p>
+  </header>
+
+  <section class="Lista">
+    <h2 class="Lista__Titulo">Lista de tus tickets creados</h2>
+    <p class="Lista__Descripcion1">
+      Los representantes están al tanto, el estado de los tickets cambiará
+      pronto.
+    </p>
+
+    <!-- Tabla de tickets -->
+    <div class="table-container" *ngIf="Lista.length > 0; else noData">
+      <table>
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Fecha Creación</th>
+            <th>Fecha Actualización</th>
+            <th>Estado</th>
+            <th>Prioridad</th>
+            <th>Detalle de Cambio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of Lista">
+            <td>{{ ticket.title            }}</td>
+            <td>{{ ticket.description      }}</td>
+            <td>{{ ticket.creationDate | date:'short'    }}</td>
+            <td>{{ ticket.updateDate   | date:'short'    }}</td>
+            <td>{{ ticket.statusName       }}</td>
+            <td>{{ ticket.priorityName     }}</td>
+            <td>{{ ticket.changeDescription}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mensaje cuando no hay datos -->
+    <ng-template #noData>
+      <p class="Lista__Descripcion2">No tienes tickets registrados.</p>
+    </ng-template>
+  </section>
+</main>
+
+</body>
+</html>

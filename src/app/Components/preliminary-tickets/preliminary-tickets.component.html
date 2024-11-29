@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <app-sidebar></app-sidebar>
+  <main class="container">
+    <header>
+      <h1 class="Titulo">Creación de Tickets</h1>
+      <p class="Subtitulo">Por favor, llena los detalles de tu solicitud a continuación.</p>
+    </header>
+
+    <section class="Formulario">
+
+      <h2 class="Formulario__Titulo">Enviar una solicitud</h2>
+      <p class="Formulario__Descripcion">
+        Llena el formulario con los detalles de tu problema. Nuestro equipo revisará tu solicitud lo antes posible.
+      </p>
+
+      <form (ngSubmit)="onSubmit()" >
+        <!-- Título -->
+        <label for="Title">Título del problema</label>
+        <input id="Title" type="text" name="Title" placeholder="Ejemplo: Error al iniciar sesión" [(ngModel)]="data.Title" required>
+        <!-- Descripción -->
+        <label for="Description">Descripción del problema</label>
+        <textarea id="Description" name="Description" rows="4" placeholder="Describe el problema con detalles..." [(ngModel)]="data.Description" required></textarea>
+
+        <!-- Botón -->
+        <button type="submit" class="btn-enviar">Enviar solicitud</button>
+      </form>
+
+    </section>
+  </main>
+
+</body>
+</html>

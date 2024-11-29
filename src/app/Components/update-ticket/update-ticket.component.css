@@ -1,0 +1,162 @@
+/* General */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.Titulo {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #4caf50;
+  margin-bottom: 10px;
+}
+
+.Subtitulo {
+  font-size: 1.4rem;
+  color: #555;
+}
+
+/* Formulario */
+.Formulario {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.Formulario__Titulo {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.Formulario__Descripcion {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #4caf50;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+select {
+  appearance: none;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"%3E%3Cpath fill="%23999" d="M0 0l5 6 5-6z"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea::placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #aaa;
+}
+
+/* Botones */
+.btn-submit {
+  width: 100%;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.btn-submit:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+/* Detalles del ticket */
+.ticket-details {
+  margin-bottom: 30px;
+}
+
+.ticket-details h4 {
+  font-size: 1.2rem;
+  color: #4caf50;
+  margin-bottom: 5px;
+}
+
+.ticket-details p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .Titulo {
+    font-size: 2rem;
+  }
+
+  .Formulario {
+    padding: 20px;
+  }
+}

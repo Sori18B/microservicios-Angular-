@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fuente -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <!-- HTML-->
+  <link rel="icon" href="/src/assets/TicketsLogo.png"> <!-- no funcionaaaa -->
+  <title>Registro</title>
+</head>
+<body>
+  <div class="bg"></div> <!-- Divs para los fondos xD -->
+  <div class="bg bg2"></div> <!-- Divs para los fondos xD -->
+  <div class="bg bg3"></div> <!-- Divs para los fondos xD -->
+  <div class="content"> <!-- Div para el form del login -->
+
+    <h1>Bienvenido 👋</h1>
+    <h2>Crea una nueva cuenta</h2>
+
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+
+      <!-- Nombre -->
+      <h4>Ingresa tu nombre completo</h4>
+      <input type="text" name="Name" id="Name" placeholder="Ej: Eduardo Soriano Vazquez" [(ngModel)]="user.Name" required>
+
+      <!-- Correo -->
+      <h4>Ingresa tu correo</h4>
+      <input type="email" name="Email" id="Email" placeholder="Ej: toñito@gmail.com" [(ngModel)]="user.Email" required>
+
+      <!-- Contraseña -->
+      <h4>Ingresa tu contraseña</h4>
+      <input type="password" name="Password" id="Password" placeholder="Ingresa tu contraseña" [(ngModel)]="user.Password" required>
+
+      <!-- Teléfono -->
+      <h4>Ingresa tu número de teléfono</h4>
+      <input type="text" name="PhoneNumber" id="PhoneNumber" placeholder="Ej: 2212847943" [(ngModel)]="user.PhoneNumber" required>
+
+      <h4>¿Ya tienes cuenta? <a routerLink="/">Inicia sesión</a></h4>
+
+      <!-- Botón -->
+      <button type="submit">Crear cuenta</button>
+    </form>
+
+  </div>
+</body>
+</html>
